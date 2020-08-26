@@ -1,0 +1,423 @@
+:root {
+    --main-color: #006496;    /* Main styling color (Blue) */
+    --lite-color: #BFFFFF;    /* Secondary styling color (Light Blue) */
+    --back-color: #FFFFFF;    /* Background color (White) */
+    --text-color: #000000;    /* Text color (Black) */
+}
+
+* {
+    box-sizing: border-box;    /* Forces padding and borders to stay within the box */
+    font-family: 'Roboto', sans-serif;    /* Changes the default font */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;    /* Makes the font slightly larger for aesthetics */
+    background-color: var(--back-color);    /* Sets the background color */
+}
+
+h1, h2, h3, h4 {
+    margin: 0;    /* Compresses the header by getting rid of the default margin */
+    padding: 0;
+    font-weight: normal;    /* Makes sure the text is not bold by default */
+    text-align: center;    /* Moves the text to the middle of it's parent for aesthetics */
+    font-family: 'Orbitron', sans-serif;    /* Changes the font to add contrast and to show importance */
+}
+
+h2 {
+    font-size: 2.2em;    /* Enlarges the text for better looking headers */
+    margin: 2em 0 1em;    /* Creates a header between each H2 for aesthetics */
+}
+
+h4 {
+    text-align: left;    /* Negates the (text-align: center;) code from above */
+}
+
+body {
+    color: var(--text-color);
+    background-size: cover;
+    width: 100%;
+    margin: 5em auto;    /* Adds a border above the body to avoid the header and the body touching */
+    margin-bottom: 5em;
+}
+
+main > * {
+    margin-left: 2em;    /* Stops everything touching the left side of the screen */
+    margin-right: 2em;    /* Stops everything touching the right side of the screen */
+}
+
+header {
+    position: fixed;    /* Makes the header stay where it is on the screen regardless of scrolling */
+    left: 0;    /* Makes the header go to the left */
+    top: 0;    /* Makes the header go to the top */
+    width: 100%;    /* Makes the header as wide as the screen */
+    background: var(--main-color);    /* Gives the header a background color */
+    padding: 1em 2em;    /* Gives the header some padding to make it look better */
+    display: flex;    /* Allows items in the header to be arranged horizontally */
+    justify-content: space-between;    /* Leaves a space between the Title and the Menu */
+    align-items: center;    /* Makes sure the items are in the middle vertically */
+}
+
+header h1 {
+    color: var(--back-color);    /* Makes the title the same color as the background to add some contrast and highlight the title */
+}
+
+
+nav ul {
+    background-color: var(--main-color);    /* Changes the background color of the menu */
+    list-style: none;    /* Removes the default bulletpoints */
+    padding: 0;
+    margin: 0;    /* Compresses the header further to add aesthetics */
+    display: flex;    /* Allows the list to be arranged vertically or horizontally */
+    flex-direction: column;    /* Arranges items horizontally */
+    position: absolute;    /* Makes sure the button ends up being on the right instead of the middle */
+    height: 0;    /* Hides the menu until the button is clicked */
+    overflow: hidden;    /* Helps hide the menu until the button is clicked */
+    right: 0;    /* Makes the menu stay on the right side of the screen */
+    z-index: 1000;
+}
+
+nav a,
+footer a {
+    padding: 0.3em 0.8em;    /* Leaves a gap between each item */
+    text-decoration: none;    /* Removes the default underline for links */
+    color: var(--lite-color);    /* Changes the text color for contrast and to aid those with color-blindness */
+}
+
+nav a:hover {
+    background: var(--back-color);    /* Changes the background color to make it clear which button is being hovered over */
+    color: var(--main-color);    /* Changes the text color to suit the new background color */
+    border-radius: 0.5em;    /* Rounds the edges for aesthetics */
+}
+
+nav label {
+    font-size: 2em;    /* Doubles the size of the menu button */
+    color: var(--lite-color);    /* Changes the button color to suit the header's background */
+}
+
+nav input {
+    display: none;    /* Hides the checkbox that the button links to */
+}
+
+nav input:checked ~ ul {
+    padding-top: 2em;    /* Squishes each item in the list down for aesthetics */
+}
+
+nav li {
+    padding: 0 0.5em;    /* Adds padding to stop contact with the edge of the menu */
+    height: inherit;    /* Spaces each item so they are not touching each other */
+}
+
+nav input:checked ~ ul {
+    height: 12em;    /* Negates the (Height: 0;) code in order to show the menu */
+}
+
+footer a:hover {
+    color: var(--back-color);    /* Changes the text color to indicate that the button is being hovered over */
+    text-decoration: underline;    /* Underlines the text to further indicate that it is being hovered over */
+}
+
+.criteria {
+    display: flex;    /* Allows the content to be arranged horizontally */
+    align-content: center;
+    align-content: space-between;
+    width: auto;
+    flex-wrap: wrap;    /* Allows each item to stack for aesthetics */
+}
+
+form {
+    border: inset;    /* Adds a border for aesthetics */
+    border-color: var(--main-color);    /* Changes the border color for aesthetics */
+    border-radius: 0.5em;    /* Rounds the border's edges for aesthetics */
+    padding: 0.8em;    /* Makes sure that it is not squished next to the border */
+}
+
+td {
+    display: block;    /* COMMENT */
+}
+
+tr {
+    display: flex;    /* COMMENT */
+    flex-direction: column;    /* COMMENT */
+    margin: 0 0 1em;    /* COMMENT */
+}
+
+th {
+    display: none;    /* COMMENT */
+}
+
+tr#top-row {
+    display: none;    /* COMMENT */
+}
+
+td::before {
+   display: inline-block;
+   margin-right: 0.3em;
+}
+
+td.alias::before {
+    content: "Alias:";
+}
+
+td.forename::before {
+    content: "Forename:";
+}
+
+td.surname::before {
+    content: "Surname:";
+}
+
+td.team::before {
+    content: "Team:";
+}
+
+td.name::before {
+    content: "Name:";
+}
+
+td.members::before {
+    content: "Members:";
+}
+
+.criteria-block {
+    width: 100%;    /* Makes sure each item fits the available space */
+    height: auto;
+    display: flex;    /* Allows items to be arranged horizontally */
+    flex-direction: column;    /* Aligns items vertically */
+    flex-wrap: nowrap;
+    padding: 0 0.3em 0 0.3em;    /* Leaves a gap between each item */
+}
+
+.criteria-block select {
+    width: 100%;
+    height: auto;
+}
+
+.criteria * {
+    border-color: var(--main-color);    /* Gives each item a border for aesthetics */
+    border-radius: 0.5em;    /* Rounds the border's edges for aesthetics */
+}
+
+#criteria-submit {
+    margin-top: 1em;    /* Leaves a gap between the search button and the other form's contents */
+    width: 100%;    /* Makes the button fill the space available */
+    font-family: 'Orbitron', sans-serif;    /* Changes the font for aesthetics */
+    border: inset;    /* Creates a border for aesthetics */
+    border-color: var(--main-color);    /* Changes the border color */
+    border-radius: 0.5em;    /* Rounds the border's edges */
+}
+
+.criteria-block > label {
+    font-family: 'Orbitron', sans-serif;    /* Changes the font to show importance with contrast */
+    border: none;
+}
+
+.criteria-block {
+    margin-bottom: 1.3em;    /* Creates a gap between each block for aesthetics */
+}
+
+.criteria-block > label {
+    margin-bottom: 0.3em;    /* Creates a gap under each label for aesthetics */
+}
+
+.criteria-radio-pair {
+    display: flex;    /* Creates a gap in each radio pair */
+}
+
+.styled-block * {
+    border: inset;    /* Creates a border for aesthetics */
+    border-color: var(--main-color);    /* Colors the border */
+    border-radius: 0.5em;    /* Rounds the border for aesthetics */
+}
+
+.styled-block {
+    display: flex;    /* Allows a large array of styles */
+    flex-direction: column;    /* Aligns the items vertically */
+    border-style: inset;    /* Creates a border for aesthetics */
+    border-color: var(--main-color);    /* Colors the border */
+    border-width: 0.2em;
+    padding: 0.8em;
+    margin-bottom: 0;
+    border-radius: 0.5em;
+}
+
+.styled-block label {
+    font-family: 'Orbitron', sans-serif;    /* Changes the font to create contrast and to show importance */
+    border: none;    /* Hides and disables the border around itself */
+}
+
+.styled-block textarea {
+    resize: vertical;    /* Allows the box to only be stretched vertically */
+    min-height: 6em;    /* Makes sure the height cannot be stretched to lower than 6em */
+    max-height: 20em;    /* Makes sure the height cannot be stretched to higher than 20em */
+}
+
+.results-block {
+    border-style: inset;    /* Creates a border */
+    border-color: var(--main-color);    /* Changes the color of the border */
+    border-radius: 0.5em;    /* Rounds the edges of the border */
+    display: flex;
+    flex-direction: column;
+    padding: 0.8em;    /* Makes sure each item is not in contact with another */
+    margin: 1em;    /* Stops it from touching the edge when the device width is around 800px */
+}
+
+.results-block h5 {
+    margin: 0.3em 0.3em 0.8em 0.8em;    /* Compacts the margin for aesthetics */
+    border-style: inset;    /* Creates a border */
+    border-color: var(--main-color);    /* Colors the border */
+    border-radius: 0.5em;    /* Rounds the border's edges */
+    font-weight: lighter;    /* Makes the font lighter for aesthetics */
+    padding: 0.5em;    /* Makes sure the text and the border do not come in contact */
+}
+
+.result-block {
+    display: flex;    /* Makes it a flexbox */
+    flex-direction: column;    /* Aligns the items vertically */
+}
+
+.result-block table {
+    border-collapse: collapse;    /* Removes the gap between borders so they join to look like a single line */
+}
+
+td {
+    padding: 0.3em;
+}
+
+td a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+td a:hover {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+.result-block table tr {
+    border-style: inset;    /* Creates a border */
+    border-color: var(--main-color);    /* Colors the border */
+    border-radius: 0.5em;    /* Rounds the border for aesthetics */
+    text-align: left;    /* Makes sure all of the text is center aligned */
+    padding: 8px;
+    background-color: var(--lite-color);    /* Colors the background of every record for aesthetics */
+}
+
+.result-block table th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    border-color: var(--main-color);
+    color: white;
+    font-family: 'Orbitron', sans-serif;    /* Changes the font for contrast and to show importance */
+}
+
+.result-block table th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: var(--main-color);    /* Changes the background color for contrast and to mirror the header and footer */
+    color: var(--back-color);    /* Changes the text color to fit the new background color */
+}
+
+footer {
+    margin-top: 1em;
+    padding-bottom: 1em;    /* Adds padding below the footer to stop the text and the edge of the screen from touching */
+    padding-top: 1em;    /* Adds padding above the footer to mirror the padding below */
+    color: var(--back-color);    /* Changes the text color to suit the new background color */
+    background-color: var(--main-color);    /* Changes the background color to stand out */
+    position: fixed;    /* Ensures the footer stays where it is on the screen even if you scroll */
+    width: 100%;    /* Makes sure the footer is as wide as the screen */
+    text-align: center;    /* Centers the text for aesthetics */
+    font-size: small;
+    left: 0;    /* Puts the footer on the left of the screen */
+    bottom: 0;    /* Puts the footer on the bottom of the screen */
+}
+
+@media screen and (min-width: 850px) {
+    body {
+        color: var(--text-color);
+        background-size: cover;
+        width: 800px;    /* Makes everything stay within the 800px boundry to avoid having thin and stretched items on the screen */
+        margin: 5em auto;
+        margin-bottom: 5em;
+    }
+    
+    main > * {
+        margin-left: 0;    /* Removes the margin  */
+        margin-right: 0;    /* Removes the margin */
+    }
+        
+    nav input,
+    nav label {
+        display: none;    /* Hides the menu button for desktop */
+    }
+    
+    nav ul {
+        height: inherit;    /* Allows it to be centered */
+        overflow: visible;
+        z-index: 0;
+        padding-top: 0;
+        flex-direction: row;    /* Changes the alignment to horizontal for desktop instead of vertical for mobile */
+        position: unset;    /* Negates the (position: absolute) rule for mobile mode*/
+    }
+    
+    nav li {
+        padding: 0.3em;    /* Adds extra padding between each item for aesthetics */
+        height: inherit;
+    }
+    
+    nav input:checked ~ ul {
+        height: 12em;
+    }
+    
+    .criteria {
+        flex-wrap: nowrap;    /* Allows the flexbox to arrange it's items horizontally instead of vertically */
+    }
+
+    .criteria-block {
+        margin-bottom: 0.8em;    /* Increases the margin for aesthetics */
+    }
+    
+    .criteria-block > label {
+        margin-bottom: 1em;    /* Adds a margin to avoid labels being to close to other items */
+    }
+    
+    td {
+        display: table-cell;
+        vertical-align: inherit;
+    }
+    
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+    
+    .result-block table tr:nth-child(even) {
+    background-color: var(--back-color);    /* Colors the background of every record for aesthetics */
+    }
+    
+    th {
+        display: table-cell;
+        vertical-align: inherit;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    tr#top-row {
+        display: table-row;    /* COMMENT */
+    }
+    
+    td::before {
+        display: none;
+    }
+
+    footer br {
+        display: none;    /* Removes the break and makes each item in the footer on the same line */
+    }
+    
+    footer {
+        font-size: inherit;
+    }
+    
+}
